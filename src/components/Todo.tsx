@@ -10,49 +10,51 @@ export default function Todos() {
   const [num, setNum] = useState<number>(0);
   const navigate = useNavigate();
   return (
-    <div
-      style={{
-        display: "flex",
-        padding: 4,
-        flexDirection: "column",
-        gap: 10,
-        height: "100%",
-      }}
-    >
+    <div>
       <div
         style={{
-          border: "2px solid white",
           display: "flex",
-          padding: 5,
+          padding: 4,
           flexDirection: "column",
           gap: 10,
+          height: "100%",
         }}
       >
-        <button
-          onClick={() => {
-            navigate("/");
+        <div
+          style={{
+            border: "2px solid white",
+            display: "flex",
+            padding: 5,
+            flexDirection: "column",
+            gap: 10,
           }}
         >
-          &larr; Counter
-        </button>
-        <input
-          color="white"
-          placeholder="Input a number"
-          value={input}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            setInput(Math.abs(Math.floor(Number(e.target.value))));
-          }}
-        />
-        <button
-          onClick={() => {
-            setNum(input);
-          }}
-        >
-          Generate Todos
-        </button>
-      </div>
-      <div>
-        <ShowTodos num={num} />
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            &larr; Counter
+          </button>
+          <input
+            color="white"
+            placeholder="Input a number"
+            value={Math.abs(Math.floor(input))}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              setInput(Math.abs(Math.floor(Number(e.target.value))));
+            }}
+          />
+          <button
+            onClick={() => {
+              setNum(input);
+            }}
+          >
+            Generate Todos
+          </button>
+        </div>
+        <div>
+          <ShowTodos num={num} />
+        </div>
       </div>
     </div>
   );
