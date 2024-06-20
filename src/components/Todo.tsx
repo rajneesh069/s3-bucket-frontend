@@ -3,15 +3,17 @@ import { Todo as TodoType } from "../utils/todoGenerator";
 import { todoStates } from "../store/atoms/todoAtomFamily";
 import { ChangeEvent, useState } from "react";
 import { Suspense } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Todos() {
   const [input, setInput] = useState<number>(0);
   const [num, setNum] = useState<number>(0);
+  const navigate = useNavigate();
   return (
     <div
       style={{
         display: "flex",
-        padding: 2,
+        padding: 4,
         flexDirection: "column",
         gap: 10,
         height: "100%",
@@ -21,11 +23,18 @@ export default function Todos() {
         style={{
           border: "2px solid white",
           display: "flex",
-          padding: 4,
+          padding: 5,
           flexDirection: "column",
-          gap: 3,
+          gap: 10,
         }}
       >
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          &larr; Counter
+        </button>
         <input
           color="white"
           placeholder="Input a number"

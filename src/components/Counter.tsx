@@ -3,8 +3,10 @@ import viteLogo from "/vite.svg";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { count as countSelector } from "../store/selector/countSelector";
 import { countState } from "../store/atoms/counterAtom";
+import { useNavigate } from "react-router-dom";
 
 export default function Counter() {
+  const navigate = useNavigate();
   const count = useRecoilValue(countSelector);
   const setCount = useSetRecoilState(countState);
   return (
@@ -24,6 +26,13 @@ export default function Counter() {
         </button>
         <p>Click on the button to increase the count.</p>
       </div>
+      <button
+        onClick={() => {
+          navigate("/todos");
+        }}
+      >
+        Todo &rarr;
+      </button>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
