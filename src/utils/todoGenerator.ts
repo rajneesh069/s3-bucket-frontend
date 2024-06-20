@@ -4,13 +4,13 @@ export interface Todo {
   description: string;
 }
 
-export function generateTodos(): Todo[] {
+export function generateTodos(numOfTodos: number): Todo[] {
   const todos: Todo[] = [];
-  for (let i = 0; i < Math.random() * 8 + 1; i++) {
+  for (let i = 0; i < numOfTodos; i++) {
     const todo: Todo = {
-      id: i,
-      title: `Random Title ${i}`,
-      description: `Random Description ${i}`,
+      id: i + 1,
+      title: `Random Title ${i + 1}`,
+      description: `Random Description ${i + 1}`,
     };
     todos.push(todo);
   }
