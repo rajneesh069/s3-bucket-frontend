@@ -12,7 +12,7 @@ export default function Counter() {
       <div>
         <img src={"/app.svg"} className="logo app" alt="App logo" />
       </div>
-      <h1>Counter + Todo App</h1>
+      <h1>Counter + Todo Generator</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           Count is {count}.
@@ -24,7 +24,7 @@ export default function Counter() {
           navigate("/todos");
         }}
       >
-        Todo &rarr;
+        Todo Generator &rarr;
       </button>
     </>
   );
